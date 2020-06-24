@@ -1,0 +1,56 @@
+{
+  "name": "userstyle",
+  "version": "0.1.0",
+  "description": "A module for adding styles to pages",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "main": "lib/es2018/index.js",
+  "types": "lib/es2018/index.d.ts",
+  "module": "dist/es2018/index.mjs",
+  "browser": "dist/es2018/index.umd.js",
+  "repository": "git@github.com:BlackGlory/userstyle.git",
+  "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts' '__tests__/**/*.ts'",
+    "test": "jest --config jest.config.js",
+    "coverage": "jest --coverage --config jest.config.js",
+    "prepublishOnly": "yarn clean && yarn build && yarn bundle",
+    "clean": "yarn clean:build && yarn clean:bundle",
+    "clean:build": "rm -rf lib",
+    "clean:bundle": "rm -rf dist",
+    "build": "yarn build:es2015 && yarn build:es2018",
+    "build:es2015": "tsc --project tsconfig.build.json --module commonjs --target es2015 --outDir lib/es2015 && tscpaths -p tsconfig.build.json -s ./src -o ./lib/es2015",
+    "build:es2018": "tsc --project tsconfig.build.json --module commonjs --target es2018 --outDir lib/es2018 && tscpaths -p tsconfig.build.json -s ./src -o ./lib/es2018",
+    "bundle": "rollup --config rollup.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  },
+  "devDependencies": {
+    "@blackglory/wait-for": "^0.1.2",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@rollup/plugin-typescript": "^5.0.0",
+    "@types/common-tags": "^1.8.0",
+    "@types/jest": "^26.0.2",
+    "core-js": "^3.6.5",
+    "extra-promise": "^0.7.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "rollup": "^2.18.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "ts-jest": "^26.1.1",
+    "tscpaths": "^0.0.9",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "common-tags": "^1.8.0",
+    "ulid": "^2.3.0"
+  }
+}
