@@ -2,6 +2,14 @@
 
 A module for adding styles to pages.
 
+## Install
+
+```sh
+npm install --save userstyle
+# or
+yarn add userstyle
+```
+
 ## API
 
 ### addStyleSheet
