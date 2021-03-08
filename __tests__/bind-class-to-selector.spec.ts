@@ -10,9 +10,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
     const classname = 'test'
 
     const unbind = bindClassToSelector(classname, () => document.getElementsByTagName('div'))
-    const isClassExist = div.classList.contains(classname)
+    const classExists = div.classList.contains(classname)
 
-    expect(isClassExist).toBeTruthy()
+    expect(classExists).toBeTruthy()
     unbind()
   })
 
@@ -25,9 +25,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
     const unbind = bindClassToSelector(classname, () => document.querySelectorAll('#flag'))
     queueMicrotask(() => div.id = 'flag')
     await waitForDOMChanged()
-    const isClassExist = div.classList.contains(classname)
+    const classExists = div.classList.contains(classname)
 
-    expect(isClassExist).toBeTruthy()
+    expect(classExists).toBeTruthy()
     unbind()
   })
 
@@ -40,9 +40,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
     const unbind = bindClassToSelector(classname, () => document.querySelectorAll('#flag'))
     queueMicrotask(() => document.body.append(div))
     await waitForAttached(div)
-    const isClassExist = div.classList.contains(classname)
+    const classExists = div.classList.contains(classname)
 
-    expect(isClassExist).toBeTruthy()
+    expect(classExists).toBeTruthy()
     unbind()
   })
 
@@ -54,9 +54,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
     const unbind = bindClassToSelector(classname, () => document.querySelectorAll('#flag'))
     queueMicrotask(() => document.body.append(div))
     await waitForAttached(div)
-    const isClassExist = div.classList.contains(classname)
+    const classExists = div.classList.contains(classname)
 
-    expect(isClassExist).toBeFalsy()
+    expect(classExists).toBeFalsy()
     unbind()
   })
 
@@ -70,9 +70,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
     const unbind = bindClassToSelector(classname, () => document.querySelectorAll('#flag'))
     queueMicrotask(() => div.id = '')
     await waitForDOMChanged()
-    const isClassExist = div.classList.contains(classname)
+    const classExists = div.classList.contains(classname)
 
-    expect(isClassExist).toBeFalsy()
+    expect(classExists).toBeFalsy()
     unbind()
   })
 
@@ -86,9 +86,9 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
       unbind()
       queueMicrotask(() => document.body.append(div))
       await waitForAttached(div)
-      const isClassExistAfterUnbind = div.classList.contains(classname)
+      const classExistsAfterUnbind = div.classList.contains(classname)
 
-      expect(isClassExistAfterUnbind).toBeFalsy()
+      expect(classExistsAfterUnbind).toBeFalsy()
     })
 
     it('remove class from all elements', () => {
@@ -98,12 +98,12 @@ describe('bindClassToSelector(classname: string, selector: () => Iterable<Elemen
       const classname = 'test'
 
       const unbind = bindClassToSelector(classname, () => document.querySelectorAll('div'))
-      const isClassExistBeforeUnbind = div.classList.contains(classname)
+      const classExistsBeforeUnbind = div.classList.contains(classname)
       unbind()
-      const isClassExistAfterUnbind = div.classList.contains(classname)
+      const classExistsAfterUnbind = div.classList.contains(classname)
 
-      expect(isClassExistBeforeUnbind).toBeTruthy()
-      expect(isClassExistAfterUnbind).toBeFalsy()
+      expect(classExistsBeforeUnbind).toBeTruthy()
+      expect(classExistsAfterUnbind).toBeFalsy()
     })
   })
 })
