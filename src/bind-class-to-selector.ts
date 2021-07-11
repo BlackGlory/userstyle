@@ -1,4 +1,7 @@
-export function bindClassToSelector(classname: string, selector: () => Iterable<Element>): () => void {
+export function bindClassToSelector(
+  classname: string
+, selector: () => Iterable<Element>
+): () => void {
   handle()
 
   const observer = onDOMChanged(handle)
