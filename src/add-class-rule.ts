@@ -1,7 +1,10 @@
 import { addStyleSheet } from './add-style-sheet'
-import { stripIndents } from 'common-tags'
+import { dedent } from 'extra-tags'
 
-export function addClassRule(classname: string, declarationBlock: string | Partial<CSSStyleDeclaration>): HTMLStyleElement {
+export function addClassRule(
+  classname: string
+, declarationBlock: string | Partial<CSSStyleDeclaration>
+): HTMLStyleElement {
   const stylesheet = createClassRule(classname, declarationBlock)
   return addStyleSheet(stylesheet)
 }
@@ -10,7 +13,10 @@ function isString(val: unknown): val is string {
   return typeof val === 'string'
 }
 
-function createClassRule(classname: string, declarationBlock: string | Partial<CSSStyleDeclaration>): string {
+function createClassRule(
+  classname: string
+, declarationBlock: string | Partial<CSSStyleDeclaration>
+): string {
   return createRule(
     createSelector(classname)
   , isString(declarationBlock)
@@ -20,7 +26,7 @@ function createClassRule(classname: string, declarationBlock: string | Partial<C
 }
 
 function createRule(selector: string, declarationBlock: string): string {
-  return stripIndents`
+  return dedent`
     ${selector} {
       ${declarationBlock}
     }

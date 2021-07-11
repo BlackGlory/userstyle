@@ -1,16 +1,16 @@
-import { stripIndents } from 'common-tags'
+import { dedent } from 'extra-tags'
 import { addClassRule } from '@src/add-class-rule'
 
 describe('addClassRule(classname: string, declaration: string | Partial<CSSStyleDeclaration>): string', () => {
   describe('style is string', () => {
     it('append stylesheet and return HTMLStyleElement', () => {
-      const result = addClassRule('test', stripIndents`
+      const result = addClassRule('test', dedent`
         background: white;
         color: black;
       `)
 
       expect(result).toBeInstanceOf(HTMLStyleElement)
-      expect(result.textContent).toEqual(stripIndents`
+      expect(result.textContent).toEqual(dedent`
         .test {
           background: white;
           color: black;
@@ -28,7 +28,7 @@ describe('addClassRule(classname: string, declaration: string | Partial<CSSStyle
       })
 
       expect(result).toBeInstanceOf(HTMLStyleElement)
-      expect(result.textContent).toEqual(stripIndents`
+      expect(result.textContent).toEqual(dedent`
         .test {
           background: white;
           color: black;
