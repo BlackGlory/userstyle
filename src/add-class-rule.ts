@@ -1,5 +1,6 @@
 import { addStyleSheet } from './add-style-sheet'
 import { dedent } from 'extra-tags'
+import { isString } from '@blackglory/types'
 
 export function addClassRule(
   classname: string
@@ -7,10 +8,6 @@ export function addClassRule(
 ): HTMLStyleElement {
   const stylesheet = createClassRule(classname, declarationBlock)
   return addStyleSheet(stylesheet)
-}
-
-function isString(val: unknown): val is string {
-  return typeof val === 'string'
 }
 
 function createClassRule(
