@@ -1,6 +1,6 @@
 {
   "name": "userstyle",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A module for adding styles to pages",
   "files": [
     "lib",
