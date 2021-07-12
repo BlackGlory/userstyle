@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@blackglory/types": "^0.4.7",
-    "extra-tags": "^0.2.0",
+    "extra-tags": "^0.2.2",
     "ulid": "^2.3.0"
   }
 }
