@@ -32,7 +32,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s lint test",
+      "pre-commit": "run-s lint build test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
