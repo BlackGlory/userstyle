@@ -1,5 +1,4 @@
 import { bindClassToSelector } from '@src/bind-class-to-selector'
-import 'core-js/web/queue-microtask'
 import { waitForAttached, waitForDOMChanged } from '@blackglory/wait-for'
 
 describe('bindClassToSelector(classname: string, selector: () => Iterable<Element>): () => void', () => {
