@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/BlackGlory/userstyle/compare/v0.1.10...v0.2.0) (2022-12-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* The minimal version of Node.js is 16
+
+* upgrade dependencies ([6110c88](https://github.com/BlackGlory/userstyle/commit/6110c8848b6e3c2870efa93b7bda6619ac5b7cad))
+
 ### [0.1.10](https://github.com/BlackGlory/userstyle/compare/v0.1.9...v0.1.10) (2022-01-06)
 
 ### [0.1.9](https://github.com/BlackGlory/userstyle/compare/v0.1.8...v0.1.9) (2021-10-14)

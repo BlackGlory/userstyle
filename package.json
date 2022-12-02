@@ -1,8 +1,10 @@
 {
   "name": "userstyle",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "A module for adding styles to pages",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
