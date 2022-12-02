@@ -2,10 +2,7 @@
   "name": "userstyle",
   "version": "0.1.10",
   "description": "A module for adding styles to pages",
-  "files": [
-    "lib",
-    "dist"
-  ],
+  "files": ["lib"],
   "main": "lib/es2018/index.js",
   "types": "lib/es2018/index.d.ts",
   "sideEffects": false,
@@ -19,10 +16,8 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src __tests__",
     "test": "jest --config jest.config.js",
     "test:coverage": "jest --coverage --config jest.config.js",
-    "prepublishOnly": "run-s clean build bundle",
-    "clean": "run-p clean:*",
-    "clean:build": "rimraf lib",
-    "clean:bundle": "rimraf dist",
+    "prepublishOnly": "run-s clean build",
+    "clean": "rimraf lib",
     "build": "run-p build:*",
     "build:es2015": "run-s build:es2015:*",
     "build:es2015:compile": "tsc --project tsconfig.build.json --module commonjs --target es2015 --outDir lib/es2015",
@@ -30,7 +25,6 @@
     "build:es2018": "run-s build:es2018:*",
     "build:es2018:compile": "tsc --project tsconfig.build.json --module commonjs --target es2018 --outDir lib/es2018",
     "build:es2018:patch": "tscpaths -p tsconfig.build.json -s ./src -o ./lib/es2018",
-    "bundle": "rollup --config rollup.config.js",
     "release": "standard-version"
   },
   "husky": {
